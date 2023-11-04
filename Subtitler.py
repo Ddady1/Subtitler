@@ -77,19 +77,32 @@ main_label.place(x=100, y=10)
 
 # name label and entry
 
-name_label = ttk.Label(root, text='Name', foreground=text_color, font=('Ariel', 10))
+name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10))
 name_label.place(x=20, y=50)
 name_entry = ttk.Entry(root, textvariable=Name)
 name_entry.place(x=20, y=70, width=200)
 name_entry.focus()
 
 
-# fontname label and entry
+# font name label and entry
 
-fontname_label = ttk.Label(root, text='Fontname', foreground=text_color, font=('Ariel', 10))
+fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10))
 fontname_label.place(x=20, y=100)
 fontname_entry = ttk.Entry(root, textvariable=Fontname)
 fontname_entry.place(x=20, y=120, width=200)
+
+
+# font size label and entry
+
+fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
+fontsize_label.place(x=20, y=150)
+fontsize_entry = ttk.Entry(root, textvariable=Fontsize)
+fontsize_entry.place(x=20, y=170, width=62, )
+
+
+# primary color label and entry
+
+primarycolor_label = ttk.Label(root, text='Primary Color:')
 
 
 
