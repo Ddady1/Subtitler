@@ -19,7 +19,7 @@ def menu_about():
 
 root = tk.Tk()
 root.title('Set .ass Subtitle')
-root.geometry('600x500+150+150')
+root.geometry('450x800+350+150')
 #root.iconbitmap('assets/reminder.ico')
 
 
@@ -69,6 +69,27 @@ help_menu = tk.Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label='Help', menu=help_menu)
 help_menu.add_command(label='About', command=menu_about)
 
+# main window label
+
+main_label = ttk.Label(root, text='Change .ass subtitle style', foreground=text_color, font=('Ariel', 14, 'bold'))
+main_label.place(x=100, y=10)
+
+
+# name label and entry
+
+name_label = ttk.Label(root, text='Name', foreground=text_color, font=('Ariel', 10))
+name_label.place(x=20, y=50)
+name_entry = ttk.Entry(root, textvariable=Name)
+name_entry.place(x=20, y=70, width=200)
+name_entry.focus()
+
+
+# fontname label and entry
+
+fontname_label = ttk.Label(root, text='Fontname', foreground=text_color, font=('Ariel', 10))
+fontname_label.place(x=20, y=100)
+fontname_entry = ttk.Entry(root, textvariable=Fontname)
+fontname_entry.place(x=20, y=120, width=200)
 
 
 
