@@ -19,7 +19,7 @@ def menu_about():
 
 root = tk.Tk()
 root.title('Set .ass Subtitle')
-root.geometry('450x800+350+150')
+root.geometry('480x600+350+150')
 #root.iconbitmap('assets/reminder.ico')
 
 
@@ -87,22 +87,34 @@ name_entry.focus()
 # font name label and entry
 
 fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10))
-fontname_label.place(x=20, y=100)
+fontname_label.place(x=250, y=50)
 fontname_entry = ttk.Entry(root, textvariable=Fontname)
-fontname_entry.place(x=20, y=120, width=200)
+fontname_entry.place(x=250, y=70, width=200)
 
 
 # font size label and entry
 
 fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
-fontsize_label.place(x=20, y=150)
+fontsize_label.place(x=20, y=100)
 fontsize_entry = ttk.Entry(root, textvariable=Fontsize)
-fontsize_entry.place(x=20, y=170, width=62, )
+fontsize_entry.place(x=20, y=120, width=61, )
 
 
 # primary color label and entry
 
-primarycolor_label = ttk.Label(root, text='Primary Color:')
+primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10))
+primarycolor_label.place(x=100, y=100)
+primarycolor_entry = ttk.Entry(root, textvariable=PrimaryColour)
+primarycolor_entry.place(x=100, y=120, width=84)
+
+
+# secondary color label and entry
+
+secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10))
+secondarycolor_label.place(x=200, y=100)
+secondarycolor_entry = ttk.Entry(root, textvariable=SecondaryColour)
+secondarycolor_entry.place(x=200, y=120, width=101)
+
 
 
 
