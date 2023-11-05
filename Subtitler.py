@@ -129,16 +129,39 @@ outlinecolor_entry.place(x=239, y=120, width=89.5)
 backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10))
 backcolor_label.place(x=348.5, y=100)
 backcolor_entry = ttk.Entry(root, textvariable=BackColour)
-backcolor_entry.place(x=348.50, y=120, width=89.5)
-s_entry = ttk.Entry(root)
-s_entry.place(x=20, y=180, width=126)
+backcolor_entry.place(x=348.5, y=120, width=89.5)
 
 
+# bold label and entry
+
+bold_label = ttk.Label(root, text='Bold:', foreground=text_color, font=('Ariel', 10))
+bold_label.place(x=20, y=150)
+bold_entry = ttk.Entry(root, textvariable=Bold)
+bold_entry.place(x=20, y=170, width=89.5)
 
 
+# italic label and entry
+
+italic_label = ttk.Label(root, text='Italic:', foreground=text_color, font=('Ariel', 10))
+italic_label.place(x=129.5, y=150)
+italic_entry = ttk.Entry(root, textvariable=Italic)
+italic_entry.place(x=129.5, y=170, width=89.5)
 
 
+# under line label and entry
 
+underline_label = ttk.Label(root, text='Underline:', foreground=text_color, font=('Ariel', 10))
+underline_label.place(x=239, y=150)
+underline_entry = ttk.Entry(root, textvariable=Underline)
+underline_entry.place(x=239, y=170, width=89.5)
+
+
+# strikeout label and entry
+
+strikeout_label = ttk.Label(root, text='Strikeout:', foreground=text_color, font=('Ariel', 10))
+strikeout_label.place(x=348.5, y=150)
+strikeout_entry = ttk.Entry(root, textvariable=StrikeOut)
+strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 
 
