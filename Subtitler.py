@@ -196,6 +196,27 @@ angel_entry = ttk.Entry(root, textvariable=Angle)
 angel_entry.place(x=348.5, y=220, width=89.5)
 
 
+# border style label and entry
+
+borderstyle_label = ttk.Label(root, text='Border Style:', foreground=text_color, font=('Ariel', 10))
+borderstyle_label.place(x=20, y=250)
+borderstyle_entry = ttk.Entry(root, textvariable=BorderStyle)
+borderstyle_entry.place(x=20, y=270, width=89.5)
+
+
+# outline label and entry
+
+outline_label = ttk.Label(root, text='Outline:', foreground=text_color, font=('Ariel', 10))
+outline_label.place(x=129.5, y=250)
+outline_entry = ttk.Entry(root, textvariable=Outline)
+outline_entry.place(x=129.5, y=270, width=89.5)
+
+
+# shadow label and entry
+
+
+
+
 
 
 
