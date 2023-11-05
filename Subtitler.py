@@ -164,6 +164,36 @@ strikeout_entry = ttk.Entry(root, textvariable=StrikeOut)
 strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 
+# scaleX label and entry
+
+scalex_label = ttk.Label(root, text='ScaleX:', foreground=text_color, font=('Ariel', 10))
+scalex_label.place(x=20, y=200)
+scalex_entry = ttk.Entry(root, textvariable=ScaleX)
+scalex_entry.place(x=20, y=220, width=89.5)
+
+
+# scaleY label and entry
+
+scaley_label = ttk.Label(root, text='ScaleY:', foreground=text_color, font=('Ariel', 10))
+scaley_label.place(x=129.5, y=200)
+scaley_entry = ttk.Entry(root, textvariable=ScaleY)
+scaley_entry.place(x=129.5, y=220, width=89.5)
+
+
+# spacing label and entry
+
+spacing_label = ttk.Label(root, text='Spacing:', foreground=text_color, font=('Ariel', 10))
+spacing_label.place(x=239, y=200)
+spacing_entry = ttk.Entry(root, textvariable=Spacing)
+spacing_entry.place(x=239, y=220, width=89.5)
+
+
+# angel label and entry
+
+angel_label = ttk.Label(root, text='Angel:', foreground=text_color, font=('Ariel', 10))
+angel_label.place(x=348.5, y=200)
+angel_entry = ttk.Entry(root, textvariable=Angle)
+angel_entry.place(x=348.5, y=220, width=89.5)
 
 
 
