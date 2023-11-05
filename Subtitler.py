@@ -19,7 +19,7 @@ def menu_about():
 
 root = tk.Tk()
 root.title('Set .ass Subtitle')
-root.geometry('480x600+350+150')
+root.geometry('458x600+350+150')
 #root.iconbitmap('assets/reminder.ico')
 
 
@@ -80,41 +80,58 @@ main_label.place(x=100, y=10)
 name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10))
 name_label.place(x=20, y=50)
 name_entry = ttk.Entry(root, textvariable=Name)
-name_entry.place(x=20, y=70, width=200)
+name_entry.place(x=20, y=70)
 name_entry.focus()
 
 
 # font name label and entry
 
 fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10))
-fontname_label.place(x=250, y=50)
+fontname_label.place(x=166, y=50)
 fontname_entry = ttk.Entry(root, textvariable=Fontname)
-fontname_entry.place(x=250, y=70, width=200)
+fontname_entry.place(x=166, y=70)
 
 
 # font size label and entry
 
 fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
-fontsize_label.place(x=20, y=100)
+fontsize_label.place(x=312, y=50)
 fontsize_entry = ttk.Entry(root, textvariable=Fontsize)
-fontsize_entry.place(x=20, y=120, width=61, )
+fontsize_entry.place(x=312, y=70)#, width=61)
 
 
 # primary color label and entry
 
 primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10))
-primarycolor_label.place(x=100, y=100)
+primarycolor_label.place(x=20, y=100)
 primarycolor_entry = ttk.Entry(root, textvariable=PrimaryColour)
-primarycolor_entry.place(x=100, y=120, width=84)
+primarycolor_entry.place(x=20, y=120, width=89.5)
 
 
 # secondary color label and entry
 
 secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10))
-secondarycolor_label.place(x=200, y=100)
+secondarycolor_label.place(x=129.5, y=100)
 secondarycolor_entry = ttk.Entry(root, textvariable=SecondaryColour)
-secondarycolor_entry.place(x=200, y=120, width=101)
+secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
+
+# outline color label and entry
+
+outlinecolor_label = ttk.Label(root, text='Outline Color:', foreground=text_color, font=('Ariel', 10))
+outlinecolor_label.place(x=239, y=100)
+outlinecolor_entry = ttk.Entry(root, textvariable=OutlineColour)
+outlinecolor_entry.place(x=239, y=120, width=89.5)
+
+
+# back coloe label and entry
+
+backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10))
+backcolor_label.place(x=348.5, y=100)
+backcolor_entry = ttk.Entry(root, textvariable=BackColour)
+backcolor_entry.place(x=348.50, y=120, width=89.5)
+s_entry = ttk.Entry(root)
+s_entry.place(x=20, y=180, width=126)
 
 
 
