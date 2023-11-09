@@ -214,6 +214,51 @@ outline_entry.place(x=129.5, y=270, width=89.5)
 
 # shadow label and entry
 
+shadow_label = ttk.Label(root, text='Shadow:', foreground=text_color, font=('Ariel', 10))
+shadow_label.place(x=239, y=250)
+shadow_entry = ttk.Entry(root, textvariable=Shadow)
+shadow_entry.place(x=239, y=270, width=89.5)
+
+
+# alignment label and entry
+
+alignment_label = ttk.Label(root, text='Alignment:', foreground=text_color, font=('Ariel', 10))
+alignment_label.place(x=348.5, y=250)
+alignment_entry = ttk.Entry(root, textvariable=Alignment)
+alignment_entry.place(x=348.5, y=270, width=89.5)
+
+
+# margin left label and entry
+
+marginl_label = ttk.Label(root, text='MarginL:', foreground=text_color, font=('Ariel', 10))
+marginl_label.place(x=20, y=300)
+marginl_entry = ttk.Entry(root, textvariable=MarginL)
+marginl_entry.place(x=20, y=320, width=89.5)
+
+
+# margin right label and entry
+
+marginr_label = ttk.Label(root, text='MarginR:', foreground=text_color, font=('Ariel', 10))
+marginr_label.place(x=129.5, y=300)
+marginr_entry = ttk.Entry(root, textvariable=MarginR)
+marginr_entry.place(x=129.5, y=320, width=89.5)
+
+
+# margin vector label and entry
+
+marginv_label = ttk.Label(root, text='MarginV:', foreground=text_color, font=('Ariel', 10))
+marginv_label.place(x=239, y=300)
+marginv_entry = ttk.Entry(root, textvariable=MarginV)
+marginv_entry.place(x=239, y=320, width=89.5)
+
+
+# Encoding lebel and entry
+
+encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10))
+encoding_label.place(x=348, y=300)
+encoding_entry = ttk.Entry(root, textvariable=Encoding)
+encoding_entry.place(x=348, y=320, width=89.5)
+
 
 
 
