@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.filedialog as fd
-from tkinter.messagebox import showinfo, askyesno
+from tkinter import messagebox
 from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
@@ -10,11 +10,11 @@ text_color = 'DodgerBlue4'
 def choose_files():
     filetypes = (('.ass files', '*.ass'), ('All files', '*.*'))
     files = fd.askopenfilenames(parent=root, title='Choose files', filetypes=filetypes)
-    showinfo(title='Selected files',message=files)
+    messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
 
 
 def menu_about():
-    showinfo(title='ABout', message='Replace .ass ver. 1.0.0\nBy David Hay Racha')
+    messagebox.showinfo(title='ABout', message='Replace .ass ver. 1.0.0\nBy David Hay Racha')
 
 
 # Create the main window
