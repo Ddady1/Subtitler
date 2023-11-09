@@ -10,7 +10,11 @@ text_color = 'DodgerBlue4'
 def choose_files():
     filetypes = (('.ass files', '*.ass'), ('All files', '*.*'))
     files = fd.askopenfilenames(parent=root, title='Choose files', filetypes=filetypes)
-    messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
+    #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
+    i = 1
+    for file in files:
+        files_listbox.insert(i, file)
+        i += 1
 
 
 def menu_about():
@@ -274,6 +278,14 @@ setdefault_label.place(x=20, y=350)
 
 seperator = ttk.Separator(root, orient='horizontal')
 seperator.place(x=20, y=380, width=418)
+
+
+# text area
+
+fileslist_label = ttk.Label(root, text='Selected files:', foreground=text_color, font=('Ariel', 11, 'bold'))
+fileslist_label.place(x=240, y=400)
+files_listbox = tk.Listbox(root)
+files_listbox.place(x=150, y=420, width=288, height=170)
 
 
 # choose files button
