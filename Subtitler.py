@@ -8,7 +8,9 @@ text_color = 'DodgerBlue4'
 
 
 def choose_files():
-    filez = fd.askopenfilenames(parent=root, title='Choose a file')
+    filetypes = (('.ass files', '*.ass'), ('All files', '*.*'))
+    files = fd.askopenfilenames(parent=root, title='Choose files', filetypes=filetypes)
+    showinfo(title='Selected files',message=files)
 
 
 def menu_about():
@@ -48,6 +50,7 @@ MarginL = tk.StringVar()
 MarginR = tk.StringVar()
 MarginV = tk.StringVar()
 Encoding = tk.StringVar()
+Setasdefault = tk.IntVar()
 
 # Create Main Menu Bar
 menu_bar = tk.Menu(root)
@@ -260,6 +263,24 @@ encoding_entry = ttk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
 
+# set as default checkbox
+
+setdefault_label = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10)\
+                                  , variable=Setasdefault)
+setdefault_label.place(x=20, y=350)
+
+
+# line seperator
+
+seperator = ttk.Separator(root, orient='horizontal')
+seperator.place(x=20, y=380, width=418)
+
+
+# choose files button
+
+choosefiles_button = tk.Button(root, text='Choose Files', foreground=text_color, font=('Ariel', 12, 'bold'), width=10,\
+                               command=lambda: choose_files())
+choosefiles_button.place(x=20, y=400)
 
 
 
