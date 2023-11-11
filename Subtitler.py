@@ -21,6 +21,14 @@ def menu_about():
     messagebox.showinfo(title='ABout', message='Replace .ass ver. 1.0.0\nBy David Hay Racha')
 
 
+def clear_fields(var_list):
+    for var in var_list:
+        var.delete(0, 'end')
+    name_entry.focus()
+
+
+
+
 # Create the main window
 
 root = tk.Tk()
@@ -55,6 +63,7 @@ MarginR = tk.StringVar()
 MarginV = tk.StringVar()
 Encoding = tk.StringVar()
 Setasdefault = tk.IntVar()
+
 
 # Create Main Menu Bar
 menu_bar = tk.Menu(root)
@@ -266,7 +275,10 @@ encoding_label.place(x=348, y=300)
 encoding_entry = ttk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
-
+var_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, secondarycolor_entry, outlinecolor_entry,\
+            backcolor_entry, bold_entry, italic_entry, underline_entry, strikeout_entry, scalex_entry, scaley_entry,\
+            spacing_entry, angel_entry, borderstyle_entry, outline_entry, shadow_entry, alignment_entry, marginl_entry,\
+            marginr_entry, marginv_entry,encoding_entry]
 # set as default checkbox
 
 setdefault_label = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10)\
@@ -274,10 +286,17 @@ setdefault_label = tk.Checkbutton(root, text='Set setting as Default', fg=text_c
 setdefault_label.place(x=20, y=350)
 
 
+# clear all fields button
+
+clearsetting_btn = tk.Button(root, text='Clear all fields', foreground='red', font=('Ariel', 11, 'bold'),\
+                             command=lambda: clear_fields(var_list))
+clearsetting_btn.place(x=200, y=350)
+
+
 # line seperator
 
 seperator = ttk.Separator(root, orient='horizontal')
-seperator.place(x=20, y=380, width=418)
+seperator.place(x=20, y=390, width=418)
 
 
 # text area
@@ -290,10 +309,32 @@ files_listbox.place(x=150, y=420, width=288, height=170)
 
 # choose files button
 
-choosefiles_button = tk.Button(root, text='Choose Files', foreground=text_color, font=('Ariel', 12, 'bold'), width=10,\
+choosefiles_button = tk.Button(root, text='Choose Files', foreground=text_color, font=('Ariel', 12, 'bold'),\
                                command=lambda: choose_files())
-choosefiles_button.place(x=20, y=400)
+choosefiles_button.place(x=20, y=400, width=120)
 
+
+# clear files button
+
+clearfiles_btn = tk.Button(root, text='Clear Selected', foreground=text_color, font=('Ariel', 12, 'bold'))
+clearfiles_btn.place(x=20, y=450, width=120)
+
+
+# submit changes to files button
+
+submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'))
+submit_btn.place(x=20, y=500, width=120)
+
+# line seperator
+
+seperator = ttk.Separator(root, orient='horizontal')
+seperator.place(x=20, y=540, width=120)
+
+
+# exit button
+
+exit_btn = tk.Button(root, text='Exit', foreground=text_color, font=('Ariel', 12, 'bold'), command=root.quit)
+exit_btn.place(x=20, y=550, width=120)
 
 
 
