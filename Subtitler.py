@@ -43,6 +43,7 @@ def submit(chk_var):
     chk_box_result = checkbox_check(chk_var)
     if chk_box_result:
         create_json(var_list, entry_list)
+    change_files(entry_list)
 
     ## for checking ## print(chk_box_result)
 
@@ -72,6 +73,10 @@ def create_json(var_list, entry_list):
                 f.write(js_object)
         else:
             return
+
+
+def change_files(entry_list):
+    pass
 
 
 
