@@ -3,6 +3,7 @@ from tkinter import ttk
 import tkinter.filedialog as fd
 from tkinter import messagebox
 from ctypes import windll
+import os
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 
@@ -26,6 +27,27 @@ def clear_fields(var_list):
         var.delete(0, 'end')
     name_entry.focus()
 
+
+def clear_selected():
+    files_listbox.delete(0, 'end')
+
+
+def checkbox_check(chk_var):
+    if chk_var.get() == 1:
+        return True
+    return False
+
+
+def submit(chk_var):
+    chk_box_result = checkbox_check(chk_var)
+    ## for checking ## print(chk_box_result)
+
+
+def check_json():
+    json_path = 'defaults.json'
+    if os.path.isfile(json_path):
+        return 'normal'
+    return 'disabled'
 
 
 
@@ -62,7 +84,7 @@ MarginL = tk.StringVar()
 MarginR = tk.StringVar()
 MarginV = tk.StringVar()
 Encoding = tk.StringVar()
-Setasdefault = tk.IntVar()
+setasdefault = tk.IntVar()
 
 
 # Create Main Menu Bar
@@ -268,29 +290,37 @@ marginv_entry = ttk.Entry(root, textvariable=MarginV)
 marginv_entry.place(x=239, y=320, width=89.5)
 
 
-# Encoding lebel and entry
+# Encoding label and entry
 
 encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10))
 encoding_label.place(x=348, y=300)
 encoding_entry = ttk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
-var_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, secondarycolor_entry, outlinecolor_entry,\
-            backcolor_entry, bold_entry, italic_entry, underline_entry, strikeout_entry, scalex_entry, scaley_entry,\
-            spacing_entry, angel_entry, borderstyle_entry, outline_entry, shadow_entry, alignment_entry, marginl_entry,\
-            marginr_entry, marginv_entry,encoding_entry]
+var_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, secondarycolor_entry, outlinecolor_entry,
+            backcolor_entry, bold_entry, italic_entry, underline_entry, strikeout_entry, scalex_entry, scaley_entry,
+            spacing_entry, angel_entry, borderstyle_entry, outline_entry, shadow_entry, alignment_entry, marginl_entry,
+            marginr_entry, marginv_entry, encoding_entry]
 # set as default checkbox
 
-setdefault_label = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10)\
-                                  , variable=Setasdefault)
-setdefault_label.place(x=20, y=350)
+setdefault_checkbox = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10),
+                                     variable=setasdefault)
+setdefault_checkbox.place(x=20, y=350)
 
 
 # clear all fields button
 
-clearsetting_btn = tk.Button(root, text='Clear all fields', foreground='red', font=('Ariel', 11, 'bold'),\
+clearsetting_btn = tk.Button(root, text='Clear all fields', foreground='red', font=('Ariel', 11, 'bold'),
                              command=lambda: clear_fields(var_list))
-clearsetting_btn.place(x=200, y=350)
+clearsetting_btn.place(x=323, y=350)
+
+
+# load defaults button
+
+btn_state = check_json()
+loaddefaults_btn = tk.Button(root, text='Load Defaults', foreground=text_color, font=('Ariel', 11, 'bold'),
+                             state=btn_state)
+loaddefaults_btn.place(x=190, y=350)
 
 
 # line seperator
@@ -316,13 +346,15 @@ choosefiles_button.place(x=20, y=400, width=120)
 
 # clear files button
 
-clearfiles_btn = tk.Button(root, text='Clear Selected', foreground=text_color, font=('Ariel', 12, 'bold'))
+clearfiles_btn = tk.Button(root, text='Clear Selected', foreground=text_color, font=('Ariel', 12, 'bold'),\
+                           command=lambda : clear_selected())
 clearfiles_btn.place(x=20, y=450, width=120)
 
 
 # submit changes to files button
 
-submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'))
+submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'),\
+                       command=lambda: submit(setasdefault))
 submit_btn.place(x=20, y=500, width=120)
 
 # line seperator
