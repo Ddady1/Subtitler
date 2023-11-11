@@ -4,6 +4,7 @@ import tkinter.filedialog as fd
 from tkinter import messagebox
 from ctypes import windll
 import os
+import json
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 
@@ -40,6 +41,10 @@ def checkbox_check(chk_var):
 
 def submit(chk_var):
     chk_box_result = checkbox_check(chk_var)
+    if chk_box_result:
+        print('create')
+        create_json(var_list, entry_list)
+
     ## for checking ## print(chk_box_result)
 
 
@@ -48,6 +53,19 @@ def check_json():
     if os.path.isfile(json_path):
         return 'normal'
     return 'disabled'
+
+
+def create_json(var_list, entry_list):
+    json_dict = {}
+    i = 0
+    for entry in entry_list:
+        con = entry.get()
+        json_dict[var_list[i]] = con
+        i += 1
+    js_object = json.dumps(json_dict, indent=4)
+    with open('defaults.json', 'w') as f:
+        f.write(js_object)
+
 
 
 
@@ -86,6 +104,9 @@ MarginV = tk.StringVar()
 Encoding = tk.StringVar()
 setasdefault = tk.IntVar()
 
+var_list = ['Name', 'Fontname', 'Fontsize', 'PrimaryColour', 'SecondaryColour', 'OutlineColour', 'BackColour', 'Bold',
+            'Italic', 'Underline', 'StrikeOut', 'ScaleX', 'ScaleY', 'Spacing', 'Angle', 'BorderStyle', 'Outline',
+            'Shadow', 'Alignment', 'MarginL', 'MarginR', 'MarginV', 'Encoding']
 
 # Create Main Menu Bar
 menu_bar = tk.Menu(root)
@@ -297,10 +318,9 @@ encoding_label.place(x=348, y=300)
 encoding_entry = ttk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
-var_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, secondarycolor_entry, outlinecolor_entry,
-            backcolor_entry, bold_entry, italic_entry, underline_entry, strikeout_entry, scalex_entry, scaley_entry,
-            spacing_entry, angel_entry, borderstyle_entry, outline_entry, shadow_entry, alignment_entry, marginl_entry,
-            marginr_entry, marginv_entry, encoding_entry]
+entry_list = [Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic,
+              Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment,
+              MarginL, MarginR, MarginV, Encoding]
 # set as default checkbox
 
 setdefault_checkbox = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10),
@@ -311,7 +331,7 @@ setdefault_checkbox.place(x=20, y=350)
 # clear all fields button
 
 clearsetting_btn = tk.Button(root, text='Clear all fields', foreground='red', font=('Ariel', 11, 'bold'),
-                             command=lambda: clear_fields(var_list))
+                             command=lambda: clear_fields(entry_list))
 clearsetting_btn.place(x=323, y=350)
 
 
@@ -353,7 +373,7 @@ clearfiles_btn.place(x=20, y=450, width=120)
 
 # submit changes to files button
 
-submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'),\
+submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'),
                        command=lambda: submit(setasdefault))
 submit_btn.place(x=20, y=500, width=120)
 
