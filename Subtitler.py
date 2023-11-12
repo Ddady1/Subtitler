@@ -75,11 +75,21 @@ def create_json(var_list, entry_list):
             return
 
 
+def open_file(file_path, ass_string):
+    with open(file_path, 'w') as asf:
+        asf.readlines()
+
+
 def change_files(entry_list):
     ass_format = ''
     for entry in entry_list:
         ass_format += (entry.get() + ',')
-    print(ass_format)
+    ## test ## print(ass_format)
+    file_num = files_listbox.size()
+    for i in range(file_num):
+        open_file(files_listbox.get(i), ass_format)
+        ## test ## print(files_listbox.get(i))
+
 
 
 
