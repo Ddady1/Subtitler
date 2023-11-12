@@ -76,7 +76,11 @@ def create_json(var_list, entry_list):
 
 
 def change_files(entry_list):
-    pass
+    ass_format = ''
+    for entry in entry_list:
+        ass_format += (entry.get() + ',')
+    print(ass_format)
+
 
 
 
