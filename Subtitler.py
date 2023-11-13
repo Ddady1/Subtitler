@@ -166,8 +166,8 @@ file_menu.add_command(label='Exit', command=root.quit)
 edit_menu = tk.Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label='Edit', menu=edit_menu)
 edit_menu.add_command(label='Reset to Original')
-edit_menu.add_command(label='Clear fields')
-edit_menu.add_command(label='Clear files')
+edit_menu.add_command(label='Clear fields', command=lambda: clear_fields(entry_list))
+edit_menu.add_command(label='Clear files', command=lambda : clear_selected())
 
 # Create Help Menu
 
@@ -415,7 +415,7 @@ choosefiles_button.place(x=20, y=400, width=120)
 # clear files button
 
 clearfiles_btn = tk.Button(root, text='Clear Selected', foreground=text_color, font=('Ariel', 12, 'bold'),\
-                           command=lambda : clear_selected())
+                           command=lambda: clear_selected())
 clearfiles_btn.place(x=20, y=450, width=120)
 
 
