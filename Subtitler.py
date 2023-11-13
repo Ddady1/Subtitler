@@ -91,10 +91,15 @@ def change_files(entry_list):
     ass_format = ''
     for entry in entry_list:
         ass_format += (entry.get() + ',')
+    ass_format = 'Style: ' + ass_format
     ass_format = ass_format.rstrip(ass_format[-1])
+    ass_format = ass_format + '\n'
     file_num = files_listbox.size()
     for i in range(file_num):
         open_file(files_listbox.get(i), ass_format)
+
+    clear_fields(entry_list)
+    clear_selected()
         ## test ## print(files_listbox.get(i))
 
 
@@ -151,9 +156,18 @@ file_menu = tk.Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label='File', menu=file_menu)
 file_menu.add_command(label='Save as Default')
 file_menu.add_separator()
-file_menu.add_command(label='Change')
+file_menu.add_command(label='Submit')
 file_menu.add_separator()
 file_menu.add_command(label='Exit', command=root.quit)
+
+
+# Create Edit Menu
+
+edit_menu = tk.Menu(menu_bar, tearoff=False)
+menu_bar.add_cascade(label='Edit', menu=edit_menu)
+edit_menu.add_command(label='Reset to Original')
+edit_menu.add_command(label='Clear fields')
+edit_menu.add_command(label='Clear files')
 
 # Create Help Menu
 
