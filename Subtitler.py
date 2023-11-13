@@ -93,8 +93,7 @@ def open_file(file_path, ass_string):
 def change_files(entry_list):
     ass_format = ''
     for entry in entry_list:
-        if entry == primarycolor_entry or entry == secondarycolor_entry or entry == outlinecolor_entry or\
-            entry == backcolor_entry:
+        if entry == primarycolor_entry or entry == secondarycolor_entry or entry == outlinecolor_entry or entry == backcolor_entry:
             ass_format += reverse_entry(entry.get() + ',')
         else:
             ass_format += (entry.get() + ',')
