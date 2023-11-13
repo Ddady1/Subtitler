@@ -65,7 +65,10 @@ def create_json(var_list, entry_list):
             json_dict = {}
             i = 0
             for entry in entry_list:
-                con = entry.get()
+                if entry == primarycolor_entry or entry == secondarycolor_entry or entry == outlinecolor_entry or entry == backcolor_entry:
+                    con = reverse_entry(entry.get())
+                else:
+                    con = entry.get()
                 json_dict[var_list[i]] = con
                 i += 1
             js_object = json.dumps(json_dict, indent=4)
@@ -90,7 +93,11 @@ def open_file(file_path, ass_string):
 def change_files(entry_list):
     ass_format = ''
     for entry in entry_list:
-        ass_format += (entry.get() + ',')
+        if entry == primarycolor_entry or entry == secondarycolor_entry or entry == outlinecolor_entry or\
+            entry == backcolor_entry:
+            ass_format += reverse_entry(entry.get() + ',')
+        else:
+            ass_format += (entry.get() + ',')
     ass_format = 'Style: ' + ass_format
     ass_format = ass_format.rstrip(ass_format[-1])
     ass_format = ass_format + '\n'
@@ -101,6 +108,11 @@ def change_files(entry_list):
     clear_fields(entry_list)
     clear_selected()
         ## test ## print(files_listbox.get(i))
+
+
+def reverse_entry(content):
+    return "".join(reversed([content[i:i + 2] for i in range(0, len(content), 2)]))
+
 
 
 
@@ -369,6 +381,8 @@ entry_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, se
               backcolor_entry, bold_entry, italic_entry, underline_entry, strikeout_entry, scalex_entry, scaley_entry,
               spacing_entry, angel_entry, borderstyle_entry, outline_entry, shadow_entry, alignment_entry,
               marginl_entry, marginr_entry, marginv_entry, encoding_entry]
+
+
 # set as default checkbox
 
 setdefault_checkbox = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10),
@@ -438,7 +452,7 @@ exit_btn.place(x=20, y=550, width=120)
 
 
 
-
+print(PrimaryColour.get())
 
 root.mainloop()
 
