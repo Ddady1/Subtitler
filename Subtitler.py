@@ -94,7 +94,8 @@ def change_files(entry_list):
     ass_format = ''
     for entry in entry_list:
         if entry == primarycolor_entry or entry == secondarycolor_entry or entry == outlinecolor_entry or entry == backcolor_entry:
-            ass_format += reverse_entry(entry.get() + ',')
+            con = reverse_entry(entry.get())
+            ass_format += con + ','
         else:
             ass_format += (entry.get() + ',')
     ass_format = 'Style: ' + ass_format
@@ -110,10 +111,14 @@ def change_files(entry_list):
 
 
 def reverse_entry(content):
-    return "".join(reversed([content[i:i + 2] for i in range(0, len(content), 2)]))
+    con = "".join(reversed([content[i:i + 2] for i in range(0, len(content), 2)]))
+    return '&H' + con
 
-
-
+def messages(msg):
+    if msg == 1:
+        print('1')
+    if msg == 2:
+        print('2')
 
 
 
@@ -196,6 +201,7 @@ main_label.place(x=100, y=10)
 
 name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10))
 name_label.place(x=20, y=50)
+name_label.bind('<Button-1>', lambda e: messages(1))
 name_entry = ttk.Entry(root, textvariable=Name)
 name_entry.place(x=20, y=70)
 name_entry.focus()
