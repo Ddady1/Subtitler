@@ -26,6 +26,7 @@ def menu_about():
 def clear_fields(entry_list):
     for entry in entry_list:
         entry.delete(0, 'end')
+    setdefault_checkbox.deselect()
     name_entry.focus()
 
 
@@ -38,8 +39,18 @@ def checkbox_check(chk_var):
         return True
     return False
 
+def check_fields():
+    i = 0
+    for entry in entry_list:
+        if len(entry.get()) == 0:
+            entry.configure(bg='red')
+        i += 1
+
+
+
 
 def submit(chk_var):
+    check_fields()
     chk_box_result = checkbox_check(chk_var)
     if chk_box_result:
         create_json(var_list, entry_list)
@@ -116,9 +127,9 @@ def reverse_entry(content):
 
 def messages(msg):
     if msg == 1:
-        print('1')
+        messagebox.showinfo(title='Style name', message='The name of the Style. Case sensitive. Cannot include commas.')
     if msg == 2:
-        print('2')
+        messagebox.showinfo(title='Font name', message='The fontname as used by Windows. Case-sensitive.')
 
 
 
@@ -157,6 +168,8 @@ MarginR = tk.StringVar()
 MarginV = tk.StringVar()
 Encoding = tk.StringVar()
 setasdefault = tk.IntVar()
+default_vars = ['Default', 'Tahoma', '24', 'FFFFFF', 'FFFFFF', 'FFFFFF', 'C0C0C0', '-1', '0', '0', '0', '100', '100',
+                '0', '0.00', '1', '2', '3', '2', '20', '20', '20', '1']
 
 var_list = ['Name', 'Fontname', 'Fontsize', 'PrimaryColour', 'SecondaryColour', 'OutlineColour', 'BackColour', 'Bold',
             'Italic', 'Underline', 'StrikeOut', 'ScaleX', 'ScaleY', 'Spacing', 'Angle', 'BorderStyle', 'Outline',
@@ -202,7 +215,7 @@ main_label.place(x=100, y=10)
 name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10))
 name_label.place(x=20, y=50)
 name_label.bind('<Button-1>', lambda e: messages(1))
-name_entry = ttk.Entry(root, textvariable=Name)
+name_entry = tk.Entry(root, textvariable=Name)
 name_entry.place(x=20, y=70)
 name_entry.focus()
 
@@ -211,7 +224,8 @@ name_entry.focus()
 
 fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10))
 fontname_label.place(x=166, y=50)
-fontname_entry = ttk.Entry(root, textvariable=Fontname)
+fontname_label.bind('<Button-1>', lambda e: messages(2))
+fontname_entry = tk.Entry(root, textvariable=Fontname)
 fontname_entry.place(x=166, y=70)
 
 
