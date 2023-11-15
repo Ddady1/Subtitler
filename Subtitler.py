@@ -90,7 +90,7 @@ def create_json(var_list, entry_list):
 
 
 def open_file(file_path, ass_string):
-    with open(file_path, 'r') as asf:
+    with open(file_path, 'r', encoding='cp1255') as asf:
         content = asf.readlines()
     i = 0
     for con in content:
