@@ -125,11 +125,16 @@ def reverse_entry(content):
     con = "".join(reversed([content[i:i + 2] for i in range(0, len(content), 2)]))
     return '&H' + con
 
+
 def messages(msg):
     if msg == 1:
         messagebox.showinfo(title='Style name', message='The name of the Style. Case sensitive. Cannot include commas.')
     if msg == 2:
         messagebox.showinfo(title='Font name', message='The fontname as used by Windows. Case-sensitive.')
+
+
+#def trim_left(content):
+#    return content.strip('&H')
 
 
 def load_defaults():
@@ -138,6 +143,7 @@ def load_defaults():
     i = 0
     for entry in entry_list:
         con = config.get(var_list[i])
+        con = con.lstrip('&H')
         entry.insert(0, con)
         i += 1
 
