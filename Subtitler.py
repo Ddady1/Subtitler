@@ -132,6 +132,16 @@ def messages(msg):
         messagebox.showinfo(title='Font name', message='The fontname as used by Windows. Case-sensitive.')
 
 
+def load_defaults():
+    with open('defaults.json', 'r') as f:
+        config = json.load(f)
+    i = 0
+    for entry in entry_list:
+        con = config.get(var_list[i])
+        entry.insert(0, con)
+        i += 1
+
+
 
 
 # Create the main window
@@ -233,7 +243,7 @@ fontname_entry.place(x=166, y=70)
 
 fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
 fontsize_label.place(x=312, y=50)
-fontsize_entry = ttk.Entry(root, textvariable=Fontsize)
+fontsize_entry = tk.Entry(root, textvariable=Fontsize)
 fontsize_entry.place(x=312, y=70)#, width=61)
 
 
@@ -241,7 +251,7 @@ fontsize_entry.place(x=312, y=70)#, width=61)
 
 primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10))
 primarycolor_label.place(x=20, y=100)
-primarycolor_entry = ttk.Entry(root, textvariable=PrimaryColour)
+primarycolor_entry = tk.Entry(root, textvariable=PrimaryColour)
 primarycolor_entry.place(x=20, y=120, width=89.5)
 
 
@@ -249,7 +259,7 @@ primarycolor_entry.place(x=20, y=120, width=89.5)
 
 secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10))
 secondarycolor_label.place(x=129.5, y=100)
-secondarycolor_entry = ttk.Entry(root, textvariable=SecondaryColour)
+secondarycolor_entry = tk.Entry(root, textvariable=SecondaryColour)
 secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
 
@@ -257,7 +267,7 @@ secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
 outlinecolor_label = ttk.Label(root, text='Outline Color:', foreground=text_color, font=('Ariel', 10))
 outlinecolor_label.place(x=239, y=100)
-outlinecolor_entry = ttk.Entry(root, textvariable=OutlineColour)
+outlinecolor_entry = tk.Entry(root, textvariable=OutlineColour)
 outlinecolor_entry.place(x=239, y=120, width=89.5)
 
 
@@ -265,7 +275,7 @@ outlinecolor_entry.place(x=239, y=120, width=89.5)
 
 backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10))
 backcolor_label.place(x=348.5, y=100)
-backcolor_entry = ttk.Entry(root, textvariable=BackColour)
+backcolor_entry = tk.Entry(root, textvariable=BackColour)
 backcolor_entry.place(x=348.5, y=120, width=89.5)
 
 
@@ -273,7 +283,7 @@ backcolor_entry.place(x=348.5, y=120, width=89.5)
 
 bold_label = ttk.Label(root, text='Bold:', foreground=text_color, font=('Ariel', 10))
 bold_label.place(x=20, y=150)
-bold_entry = ttk.Entry(root, textvariable=Bold)
+bold_entry = tk.Entry(root, textvariable=Bold)
 bold_entry.place(x=20, y=170, width=89.5)
 
 
@@ -281,7 +291,7 @@ bold_entry.place(x=20, y=170, width=89.5)
 
 italic_label = ttk.Label(root, text='Italic:', foreground=text_color, font=('Ariel', 10))
 italic_label.place(x=129.5, y=150)
-italic_entry = ttk.Entry(root, textvariable=Italic)
+italic_entry = tk.Entry(root, textvariable=Italic)
 italic_entry.place(x=129.5, y=170, width=89.5)
 
 
@@ -289,7 +299,7 @@ italic_entry.place(x=129.5, y=170, width=89.5)
 
 underline_label = ttk.Label(root, text='Underline:', foreground=text_color, font=('Ariel', 10))
 underline_label.place(x=239, y=150)
-underline_entry = ttk.Entry(root, textvariable=Underline)
+underline_entry = tk.Entry(root, textvariable=Underline)
 underline_entry.place(x=239, y=170, width=89.5)
 
 
@@ -297,7 +307,7 @@ underline_entry.place(x=239, y=170, width=89.5)
 
 strikeout_label = ttk.Label(root, text='Strikeout:', foreground=text_color, font=('Ariel', 10))
 strikeout_label.place(x=348.5, y=150)
-strikeout_entry = ttk.Entry(root, textvariable=StrikeOut)
+strikeout_entry = tk.Entry(root, textvariable=StrikeOut)
 strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 
@@ -305,7 +315,7 @@ strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 scalex_label = ttk.Label(root, text='ScaleX:', foreground=text_color, font=('Ariel', 10))
 scalex_label.place(x=20, y=200)
-scalex_entry = ttk.Entry(root, textvariable=ScaleX)
+scalex_entry = tk.Entry(root, textvariable=ScaleX)
 scalex_entry.place(x=20, y=220, width=89.5)
 
 
@@ -313,7 +323,7 @@ scalex_entry.place(x=20, y=220, width=89.5)
 
 scaley_label = ttk.Label(root, text='ScaleY:', foreground=text_color, font=('Ariel', 10))
 scaley_label.place(x=129.5, y=200)
-scaley_entry = ttk.Entry(root, textvariable=ScaleY)
+scaley_entry = tk.Entry(root, textvariable=ScaleY)
 scaley_entry.place(x=129.5, y=220, width=89.5)
 
 
@@ -321,7 +331,7 @@ scaley_entry.place(x=129.5, y=220, width=89.5)
 
 spacing_label = ttk.Label(root, text='Spacing:', foreground=text_color, font=('Ariel', 10))
 spacing_label.place(x=239, y=200)
-spacing_entry = ttk.Entry(root, textvariable=Spacing)
+spacing_entry = tk.Entry(root, textvariable=Spacing)
 spacing_entry.place(x=239, y=220, width=89.5)
 
 
@@ -329,7 +339,7 @@ spacing_entry.place(x=239, y=220, width=89.5)
 
 angel_label = ttk.Label(root, text='Angel:', foreground=text_color, font=('Ariel', 10))
 angel_label.place(x=348.5, y=200)
-angel_entry = ttk.Entry(root, textvariable=Angle)
+angel_entry = tk.Entry(root, textvariable=Angle)
 angel_entry.place(x=348.5, y=220, width=89.5)
 
 
@@ -337,7 +347,7 @@ angel_entry.place(x=348.5, y=220, width=89.5)
 
 borderstyle_label = ttk.Label(root, text='Border Style:', foreground=text_color, font=('Ariel', 10))
 borderstyle_label.place(x=20, y=250)
-borderstyle_entry = ttk.Entry(root, textvariable=BorderStyle)
+borderstyle_entry = tk.Entry(root, textvariable=BorderStyle)
 borderstyle_entry.place(x=20, y=270, width=89.5)
 
 
@@ -345,7 +355,7 @@ borderstyle_entry.place(x=20, y=270, width=89.5)
 
 outline_label = ttk.Label(root, text='Outline:', foreground=text_color, font=('Ariel', 10))
 outline_label.place(x=129.5, y=250)
-outline_entry = ttk.Entry(root, textvariable=Outline)
+outline_entry = tk.Entry(root, textvariable=Outline)
 outline_entry.place(x=129.5, y=270, width=89.5)
 
 
@@ -353,7 +363,7 @@ outline_entry.place(x=129.5, y=270, width=89.5)
 
 shadow_label = ttk.Label(root, text='Shadow:', foreground=text_color, font=('Ariel', 10))
 shadow_label.place(x=239, y=250)
-shadow_entry = ttk.Entry(root, textvariable=Shadow)
+shadow_entry = tk.Entry(root, textvariable=Shadow)
 shadow_entry.place(x=239, y=270, width=89.5)
 
 
@@ -361,7 +371,7 @@ shadow_entry.place(x=239, y=270, width=89.5)
 
 alignment_label = ttk.Label(root, text='Alignment:', foreground=text_color, font=('Ariel', 10))
 alignment_label.place(x=348.5, y=250)
-alignment_entry = ttk.Entry(root, textvariable=Alignment)
+alignment_entry = tk.Entry(root, textvariable=Alignment)
 alignment_entry.place(x=348.5, y=270, width=89.5)
 
 
@@ -369,7 +379,7 @@ alignment_entry.place(x=348.5, y=270, width=89.5)
 
 marginl_label = ttk.Label(root, text='MarginL:', foreground=text_color, font=('Ariel', 10))
 marginl_label.place(x=20, y=300)
-marginl_entry = ttk.Entry(root, textvariable=MarginL)
+marginl_entry = tk.Entry(root, textvariable=MarginL)
 marginl_entry.place(x=20, y=320, width=89.5)
 
 
@@ -377,7 +387,7 @@ marginl_entry.place(x=20, y=320, width=89.5)
 
 marginr_label = ttk.Label(root, text='MarginR:', foreground=text_color, font=('Ariel', 10))
 marginr_label.place(x=129.5, y=300)
-marginr_entry = ttk.Entry(root, textvariable=MarginR)
+marginr_entry = tk.Entry(root, textvariable=MarginR)
 marginr_entry.place(x=129.5, y=320, width=89.5)
 
 
@@ -385,7 +395,7 @@ marginr_entry.place(x=129.5, y=320, width=89.5)
 
 marginv_label = ttk.Label(root, text='MarginV:', foreground=text_color, font=('Ariel', 10))
 marginv_label.place(x=239, y=300)
-marginv_entry = ttk.Entry(root, textvariable=MarginV)
+marginv_entry = tk.Entry(root, textvariable=MarginV)
 marginv_entry.place(x=239, y=320, width=89.5)
 
 
@@ -393,7 +403,7 @@ marginv_entry.place(x=239, y=320, width=89.5)
 
 encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10))
 encoding_label.place(x=348, y=300)
-encoding_entry = ttk.Entry(root, textvariable=Encoding)
+encoding_entry = tk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
 entry_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, secondarycolor_entry, outlinecolor_entry,
@@ -420,7 +430,7 @@ clearsetting_btn.place(x=323, y=350)
 
 btn_state = check_json()
 loaddefaults_btn = tk.Button(root, text='Load Defaults', foreground=text_color, font=('Ariel', 11, 'bold'),
-                             state=btn_state)
+                             state=btn_state, command=lambda: load_defaults())
 loaddefaults_btn.place(x=190, y=350)
 
 
