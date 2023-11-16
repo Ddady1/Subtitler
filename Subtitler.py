@@ -131,6 +131,48 @@ def messages(msg):
         messagebox.showinfo(title='Style name', message='The name of the Style. Case sensitive. Cannot include commas.')
     if msg == 2:
         messagebox.showinfo(title='Font name', message='The fontname as used by Windows. Case-sensitive.')
+    if msg == 3:
+        messagebox.showinfo(title='Font size', message='Literally what it says :-)')
+    if msg == 4:
+        messagebox.showinfo(title='Primary color', message='A long integer BGR (blue-green-red) value. ie. the byte order in the hexadecimal equivelent of this number is BBGGRR. This is the colour that a subtitle will normally appear in')
+    if msg == 5:
+        messagebox.showinfo(title='Secondary color', message=' A long integer BGR (blue-green-red)  value. ie. the byte order in the hexadecimal equivelent of this number is BBGGRR. This colour may be used instead of the Primary colour when a subtitle is automatically shifted to prevent an onscreen collsion, to distinguish the different subtitles.')
+    if msg == 6:
+        messagebox.showinfo(title='Outline color', message='A long integer BGR (blue-green-red)  value. ie. the byte order in the hexadecimal equivelent of this number is BBGGRR. This colour may be used instead of the Primary or Secondary colour when a subtitle is automatically shifted to prevent an onscreen collsion, to distinguish the different subtitles.')
+    if msg == 7:
+        messagebox.showinfo(title='Back color', message='This is the colour of the subtitle outline or shadow, if these are used. A long integer BGR (blue-green-red)  value. ie. the byte order in the hexadecimal equivelent of this number is BBGGRR')
+    if msg == 8:
+        messagebox.showinfo(title='Bold', message='This defines whether text is bold (true) or not (false). -1 is True, 0 is False. This is independant of the Italic attribute - you can have have text which is both bold and italic.')
+    if msg == 9:
+        messagebox.showinfo(title='Italic', message='This defines whether text is italic (true) or not (false). -1 is True, 0 is False. This is independant of the bold attribute - you can have have text which is both bold and italic.')
+    if msg == 10:
+        messagebox.showinfo(title='Underline', message='This defines whether text is underlined (true) or not (false). -1 is True, 0 is False. This is independant of the bold attribute - you can have have text which is both bold and italic.')
+    if msg == 11:
+        messagebox.showinfo(title='Strikeout', message='This defines whether text is striked-out (true) or not (false). -1 is True, 0 is False. This is independant of the bold attribute - you can have have text which is both bold and italic.')
+    if msg == 12:
+        messagebox.showinfo(title='ScaleX', message='Modifies the width of the font. [percent]')
+    if msg == 13:
+        messagebox.showinfo(title='ScaleY', message='Modifies the  height of the font. [percent]')
+    if msg == 14:
+        messagebox.showinfo(title='Spacing', message='Extra space between characters. [pixels]')
+    if msg == 15:
+        messagebox.showinfo(title='Angel', message='The origin of the rotation is defined by the alignment. Can be a floating point number. [degrees]')
+    if msg == 16:
+        messagebox.showinfo(title='Border style', message='1=Outline + drop shadow, 3=Opaque box')
+    if msg == 17:
+        messagebox.showinfo(title='Outline', message='If BorderStyle is 1,  then this specifies the width of the outline around the text, in pixels. Values may be 0, 1, 2, 3 or 4.')
+    if msg == 18:
+        messagebox.showinfo(title='Shadow', message='If BorderStyle is 1,  then this specifies the depth of the drop shadow behind the text, in pixels. Values may be 0, 1, 2, 3 or 4. Drop shadow is always used in addition to an outline - SSA will force an outline of 1 pixel if no outline width is given.')
+    if msg == 19:
+        messagebox.showinfo(title='Alignment', message='This sets how text is "justified" within the Left/Right onscreen margins, and also the vertical placing. Values may be 1=Left, 2=Centered, 3=Right. Add 4 to the value for a "Toptitle". Add 8 to the value for a "Midtitle". eg. 5 = left-justified toptitle. but after the layout of the numpad (1-3 sub, 4-6 mid, 7-9 top).')
+    if msg == 20:
+        messagebox.showinfo(title='MarginL', message='This defines the Left Margin in pixels. It is the distance from the left-hand edge of the screen.The three onscreen margins (MarginL, MarginR, MarginV) define areas in which the subtitle text will be displayed.')
+    if msg == 21:
+        messagebox.showinfo(title='MarginR', message='This defines the Right Margin in pixels. It is the distance from the right-hand edge of the screen. The three onscreen margins (MarginL, MarginR, MarginV) define areas in which the subtitle text will be displayed.')
+    if msg == 22:
+        messagebox.showinfo(title='MarginV', message='This defines the vertical Left Margin in pixels. For a subtitle, it is the distance from the bottom of the screen. For a toptitle, it is the distance from the top of the screen. For a midtitle, the value is ignored - the text will be vertically centred')
+    if msg == 13:
+        messagebox.showinfo(title='Encoding', message='This specifies the font character set or encoding and on multi-lingual Windows installations it provides access to characters used in multiple than one languages. It is usually 0 (zero) for English (Western, ANSI) Windows. When the file is Unicode, this field is useful during file format conversions.')
 
 
 #def trim_left(content):
@@ -249,6 +291,7 @@ fontname_entry.place(x=166, y=70)
 
 fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
 fontsize_label.place(x=312, y=50)
+fontsize_label.bind('<Button-1>', lambda e: messages(3))
 fontsize_entry = tk.Entry(root, textvariable=Fontsize)
 fontsize_entry.place(x=312, y=70)#, width=61)
 
@@ -257,6 +300,7 @@ fontsize_entry.place(x=312, y=70)#, width=61)
 
 primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10))
 primarycolor_label.place(x=20, y=100)
+primarycolor_label.bind('<Button-1>', lambda e: messages(4))
 primarycolor_entry = tk.Entry(root, textvariable=PrimaryColour)
 primarycolor_entry.place(x=20, y=120, width=89.5)
 
@@ -265,6 +309,7 @@ primarycolor_entry.place(x=20, y=120, width=89.5)
 
 secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10))
 secondarycolor_label.place(x=129.5, y=100)
+secondarycolor_label.bind('<Button-1>', lambda e:messages(5))
 secondarycolor_entry = tk.Entry(root, textvariable=SecondaryColour)
 secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
@@ -273,6 +318,7 @@ secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
 outlinecolor_label = ttk.Label(root, text='Outline Color:', foreground=text_color, font=('Ariel', 10))
 outlinecolor_label.place(x=239, y=100)
+outlinecolor_label.bind('<Button-1>', lambda e:messages(6))
 outlinecolor_entry = tk.Entry(root, textvariable=OutlineColour)
 outlinecolor_entry.place(x=239, y=120, width=89.5)
 
@@ -281,6 +327,7 @@ outlinecolor_entry.place(x=239, y=120, width=89.5)
 
 backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10))
 backcolor_label.place(x=348.5, y=100)
+backcolor_label.bind('<Button-1>', lambda e:messages(7))
 backcolor_entry = tk.Entry(root, textvariable=BackColour)
 backcolor_entry.place(x=348.5, y=120, width=89.5)
 
@@ -289,6 +336,7 @@ backcolor_entry.place(x=348.5, y=120, width=89.5)
 
 bold_label = ttk.Label(root, text='Bold:', foreground=text_color, font=('Ariel', 10))
 bold_label.place(x=20, y=150)
+bold_label.bind('<Button-1>', lambda e:messages(8))
 bold_entry = tk.Entry(root, textvariable=Bold)
 bold_entry.place(x=20, y=170, width=89.5)
 
@@ -297,6 +345,7 @@ bold_entry.place(x=20, y=170, width=89.5)
 
 italic_label = ttk.Label(root, text='Italic:', foreground=text_color, font=('Ariel', 10))
 italic_label.place(x=129.5, y=150)
+italic_label.bind('<Button-1>', lambda e:messages(9))
 italic_entry = tk.Entry(root, textvariable=Italic)
 italic_entry.place(x=129.5, y=170, width=89.5)
 
@@ -305,6 +354,7 @@ italic_entry.place(x=129.5, y=170, width=89.5)
 
 underline_label = ttk.Label(root, text='Underline:', foreground=text_color, font=('Ariel', 10))
 underline_label.place(x=239, y=150)
+underline_label.bind('<Button-1>', lambda e:messages(10))
 underline_entry = tk.Entry(root, textvariable=Underline)
 underline_entry.place(x=239, y=170, width=89.5)
 
@@ -313,6 +363,7 @@ underline_entry.place(x=239, y=170, width=89.5)
 
 strikeout_label = ttk.Label(root, text='Strikeout:', foreground=text_color, font=('Ariel', 10))
 strikeout_label.place(x=348.5, y=150)
+strikeout_label.bind('<Button-1>', lambda e:messages(11))
 strikeout_entry = tk.Entry(root, textvariable=StrikeOut)
 strikeout_entry.place(x=348.5, y=170, width=89.5)
 
@@ -321,6 +372,7 @@ strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 scalex_label = ttk.Label(root, text='ScaleX:', foreground=text_color, font=('Ariel', 10))
 scalex_label.place(x=20, y=200)
+scalex_label.bind('<Button-1>', lambda e:messages(12))
 scalex_entry = tk.Entry(root, textvariable=ScaleX)
 scalex_entry.place(x=20, y=220, width=89.5)
 
@@ -329,6 +381,7 @@ scalex_entry.place(x=20, y=220, width=89.5)
 
 scaley_label = ttk.Label(root, text='ScaleY:', foreground=text_color, font=('Ariel', 10))
 scaley_label.place(x=129.5, y=200)
+scaley_label.bind('<Button-1>', lambda e:messages(13))
 scaley_entry = tk.Entry(root, textvariable=ScaleY)
 scaley_entry.place(x=129.5, y=220, width=89.5)
 
@@ -337,6 +390,7 @@ scaley_entry.place(x=129.5, y=220, width=89.5)
 
 spacing_label = ttk.Label(root, text='Spacing:', foreground=text_color, font=('Ariel', 10))
 spacing_label.place(x=239, y=200)
+spacing_label.bind('<Button-1>', lambda e:messages(14))
 spacing_entry = tk.Entry(root, textvariable=Spacing)
 spacing_entry.place(x=239, y=220, width=89.5)
 
@@ -345,6 +399,7 @@ spacing_entry.place(x=239, y=220, width=89.5)
 
 angel_label = ttk.Label(root, text='Angel:', foreground=text_color, font=('Ariel', 10))
 angel_label.place(x=348.5, y=200)
+angel_label.bind('<Button-1>', lambda e:messages(15))
 angel_entry = tk.Entry(root, textvariable=Angle)
 angel_entry.place(x=348.5, y=220, width=89.5)
 
@@ -353,6 +408,7 @@ angel_entry.place(x=348.5, y=220, width=89.5)
 
 borderstyle_label = ttk.Label(root, text='Border Style:', foreground=text_color, font=('Ariel', 10))
 borderstyle_label.place(x=20, y=250)
+borderstyle_label.bind('<Button-1>', lambda e:messages(16))
 borderstyle_entry = tk.Entry(root, textvariable=BorderStyle)
 borderstyle_entry.place(x=20, y=270, width=89.5)
 
@@ -361,6 +417,7 @@ borderstyle_entry.place(x=20, y=270, width=89.5)
 
 outline_label = ttk.Label(root, text='Outline:', foreground=text_color, font=('Ariel', 10))
 outline_label.place(x=129.5, y=250)
+outline_label.bind('<Button-1>', lambda e:messages(17))
 outline_entry = tk.Entry(root, textvariable=Outline)
 outline_entry.place(x=129.5, y=270, width=89.5)
 
@@ -369,6 +426,7 @@ outline_entry.place(x=129.5, y=270, width=89.5)
 
 shadow_label = ttk.Label(root, text='Shadow:', foreground=text_color, font=('Ariel', 10))
 shadow_label.place(x=239, y=250)
+shadow_label.bind('<Button-1>', lambda e:messages(18))
 shadow_entry = tk.Entry(root, textvariable=Shadow)
 shadow_entry.place(x=239, y=270, width=89.5)
 
@@ -377,6 +435,7 @@ shadow_entry.place(x=239, y=270, width=89.5)
 
 alignment_label = ttk.Label(root, text='Alignment:', foreground=text_color, font=('Ariel', 10))
 alignment_label.place(x=348.5, y=250)
+alignment_label.bind('<Button-1>', lambda e:messages(19))
 alignment_entry = tk.Entry(root, textvariable=Alignment)
 alignment_entry.place(x=348.5, y=270, width=89.5)
 
@@ -385,6 +444,7 @@ alignment_entry.place(x=348.5, y=270, width=89.5)
 
 marginl_label = ttk.Label(root, text='MarginL:', foreground=text_color, font=('Ariel', 10))
 marginl_label.place(x=20, y=300)
+marginl_label.bind('<Button-1>', lambda e:messages(20))
 marginl_entry = tk.Entry(root, textvariable=MarginL)
 marginl_entry.place(x=20, y=320, width=89.5)
 
@@ -393,6 +453,7 @@ marginl_entry.place(x=20, y=320, width=89.5)
 
 marginr_label = ttk.Label(root, text='MarginR:', foreground=text_color, font=('Ariel', 10))
 marginr_label.place(x=129.5, y=300)
+marginr_label.bind('<Button-1>', lambda e:messages(21))
 marginr_entry = tk.Entry(root, textvariable=MarginR)
 marginr_entry.place(x=129.5, y=320, width=89.5)
 
@@ -401,6 +462,7 @@ marginr_entry.place(x=129.5, y=320, width=89.5)
 
 marginv_label = ttk.Label(root, text='MarginV:', foreground=text_color, font=('Ariel', 10))
 marginv_label.place(x=239, y=300)
+marginv_label.bind('<Button-1>', lambda e:messages(22))
 marginv_entry = tk.Entry(root, textvariable=MarginV)
 marginv_entry.place(x=239, y=320, width=89.5)
 
@@ -409,6 +471,7 @@ marginv_entry.place(x=239, y=320, width=89.5)
 
 encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10))
 encoding_label.place(x=348, y=300)
+encoding_label.bind('<Button-1>', lambda e:messages(23))
 encoding_entry = tk.Entry(root, textvariable=Encoding)
 encoding_entry.place(x=348, y=320, width=89.5)
 
@@ -480,14 +543,12 @@ seperator = ttk.Separator(root, orient='horizontal')
 seperator.place(x=20, y=540, width=120)
 
 
+
 # exit button
 
 exit_btn = tk.Button(root, text='Exit', foreground=text_color, font=('Ariel', 12, 'bold'), command=root.quit)
 exit_btn.place(x=20, y=550, width=120)
 
-
-
-print(PrimaryColour.get())
-
+4
 root.mainloop()
 

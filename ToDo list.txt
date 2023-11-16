@@ -1,0 +1,19 @@
+Minor issues:
+----------------
+
+* When uploading the default settings it takes the '&H' in the color fields and then adds it again. Needs to trim it.
+* Needs to do validation on the fields.
+* Needs to fix that when user type only some fields the rest will come from defaults.json file if exists or the original default.
+* Needs to finish the linked labels for information per field.
+* When hover with mouse over label the cursor should change to hand.
+* Work on a more sufficient help file.
+* Re-arrange the help menu and finish it.
+
+
+
+Development:
+----------------
+
+* Add the option to convert .srt to .ass
+
+
