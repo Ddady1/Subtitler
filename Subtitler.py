@@ -270,7 +270,7 @@ main_label.place(x=100, y=10)
 
 # name label and entry
 
-name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10))
+name_label = ttk.Label(root, text='Name:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 name_label.place(x=20, y=50)
 name_label.bind('<Button-1>', lambda e: messages(1))
 name_entry = tk.Entry(root, textvariable=Name)
@@ -280,7 +280,7 @@ name_entry.focus()
 
 # font name label and entry
 
-fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10))
+fontname_label = ttk.Label(root, text='Font Name:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 fontname_label.place(x=166, y=50)
 fontname_label.bind('<Button-1>', lambda e: messages(2))
 fontname_entry = tk.Entry(root, textvariable=Fontname)
@@ -289,7 +289,7 @@ fontname_entry.place(x=166, y=70)
 
 # font size label and entry
 
-fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10))
+fontsize_label = ttk.Label(root, text='Font Size:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 fontsize_label.place(x=312, y=50)
 fontsize_label.bind('<Button-1>', lambda e: messages(3))
 fontsize_entry = tk.Entry(root, textvariable=Fontsize)
@@ -298,7 +298,7 @@ fontsize_entry.place(x=312, y=70)#, width=61)
 
 # primary color label and entry
 
-primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10))
+primarycolor_label = ttk.Label(root, text='Primary Color:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 primarycolor_label.place(x=20, y=100)
 primarycolor_label.bind('<Button-1>', lambda e: messages(4))
 primarycolor_entry = tk.Entry(root, textvariable=PrimaryColour)
@@ -307,7 +307,7 @@ primarycolor_entry.place(x=20, y=120, width=89.5)
 
 # secondary color label and entry
 
-secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10))
+secondarycolor_label = ttk.Label(root, text='Secondary Color:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 secondarycolor_label.place(x=129.5, y=100)
 secondarycolor_label.bind('<Button-1>', lambda e:messages(5))
 secondarycolor_entry = tk.Entry(root, textvariable=SecondaryColour)
@@ -316,7 +316,7 @@ secondarycolor_entry.place(x=129.5, y=120, width=89.5)
 
 # outline color label and entry
 
-outlinecolor_label = ttk.Label(root, text='Outline Color:', foreground=text_color, font=('Ariel', 10))
+outlinecolor_label = ttk.Label(root, text='Outline Color:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 outlinecolor_label.place(x=239, y=100)
 outlinecolor_label.bind('<Button-1>', lambda e:messages(6))
 outlinecolor_entry = tk.Entry(root, textvariable=OutlineColour)
@@ -325,7 +325,7 @@ outlinecolor_entry.place(x=239, y=120, width=89.5)
 
 # back coloe label and entry
 
-backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10))
+backcolor_label = ttk.Label(root, text='Back Color:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 backcolor_label.place(x=348.5, y=100)
 backcolor_label.bind('<Button-1>', lambda e:messages(7))
 backcolor_entry = tk.Entry(root, textvariable=BackColour)
@@ -334,7 +334,7 @@ backcolor_entry.place(x=348.5, y=120, width=89.5)
 
 # bold label and entry
 
-bold_label = ttk.Label(root, text='Bold:', foreground=text_color, font=('Ariel', 10))
+bold_label = ttk.Label(root, text='Bold:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 bold_label.place(x=20, y=150)
 bold_label.bind('<Button-1>', lambda e:messages(8))
 bold_entry = tk.Entry(root, textvariable=Bold)
@@ -343,7 +343,7 @@ bold_entry.place(x=20, y=170, width=89.5)
 
 # italic label and entry
 
-italic_label = ttk.Label(root, text='Italic:', foreground=text_color, font=('Ariel', 10))
+italic_label = ttk.Label(root, text='Italic:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 italic_label.place(x=129.5, y=150)
 italic_label.bind('<Button-1>', lambda e:messages(9))
 italic_entry = tk.Entry(root, textvariable=Italic)
@@ -352,7 +352,7 @@ italic_entry.place(x=129.5, y=170, width=89.5)
 
 # under line label and entry
 
-underline_label = ttk.Label(root, text='Underline:', foreground=text_color, font=('Ariel', 10))
+underline_label = ttk.Label(root, text='Underline:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 underline_label.place(x=239, y=150)
 underline_label.bind('<Button-1>', lambda e:messages(10))
 underline_entry = tk.Entry(root, textvariable=Underline)
@@ -361,7 +361,7 @@ underline_entry.place(x=239, y=170, width=89.5)
 
 # strikeout label and entry
 
-strikeout_label = ttk.Label(root, text='Strikeout:', foreground=text_color, font=('Ariel', 10))
+strikeout_label = ttk.Label(root, text='Strikeout:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 strikeout_label.place(x=348.5, y=150)
 strikeout_label.bind('<Button-1>', lambda e:messages(11))
 strikeout_entry = tk.Entry(root, textvariable=StrikeOut)
@@ -370,7 +370,7 @@ strikeout_entry.place(x=348.5, y=170, width=89.5)
 
 # scaleX label and entry
 
-scalex_label = ttk.Label(root, text='ScaleX:', foreground=text_color, font=('Ariel', 10))
+scalex_label = ttk.Label(root, text='ScaleX:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 scalex_label.place(x=20, y=200)
 scalex_label.bind('<Button-1>', lambda e:messages(12))
 scalex_entry = tk.Entry(root, textvariable=ScaleX)
@@ -379,7 +379,7 @@ scalex_entry.place(x=20, y=220, width=89.5)
 
 # scaleY label and entry
 
-scaley_label = ttk.Label(root, text='ScaleY:', foreground=text_color, font=('Ariel', 10))
+scaley_label = ttk.Label(root, text='ScaleY:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 scaley_label.place(x=129.5, y=200)
 scaley_label.bind('<Button-1>', lambda e:messages(13))
 scaley_entry = tk.Entry(root, textvariable=ScaleY)
@@ -388,7 +388,7 @@ scaley_entry.place(x=129.5, y=220, width=89.5)
 
 # spacing label and entry
 
-spacing_label = ttk.Label(root, text='Spacing:', foreground=text_color, font=('Ariel', 10))
+spacing_label = ttk.Label(root, text='Spacing:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 spacing_label.place(x=239, y=200)
 spacing_label.bind('<Button-1>', lambda e:messages(14))
 spacing_entry = tk.Entry(root, textvariable=Spacing)
@@ -397,7 +397,7 @@ spacing_entry.place(x=239, y=220, width=89.5)
 
 # angel label and entry
 
-angel_label = ttk.Label(root, text='Angel:', foreground=text_color, font=('Ariel', 10))
+angel_label = ttk.Label(root, text='Angel:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 angel_label.place(x=348.5, y=200)
 angel_label.bind('<Button-1>', lambda e:messages(15))
 angel_entry = tk.Entry(root, textvariable=Angle)
@@ -406,7 +406,7 @@ angel_entry.place(x=348.5, y=220, width=89.5)
 
 # border style label and entry
 
-borderstyle_label = ttk.Label(root, text='Border Style:', foreground=text_color, font=('Ariel', 10))
+borderstyle_label = ttk.Label(root, text='Border Style:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 borderstyle_label.place(x=20, y=250)
 borderstyle_label.bind('<Button-1>', lambda e:messages(16))
 borderstyle_entry = tk.Entry(root, textvariable=BorderStyle)
@@ -415,7 +415,7 @@ borderstyle_entry.place(x=20, y=270, width=89.5)
 
 # outline label and entry
 
-outline_label = ttk.Label(root, text='Outline:', foreground=text_color, font=('Ariel', 10))
+outline_label = ttk.Label(root, text='Outline:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 outline_label.place(x=129.5, y=250)
 outline_label.bind('<Button-1>', lambda e:messages(17))
 outline_entry = tk.Entry(root, textvariable=Outline)
@@ -424,7 +424,7 @@ outline_entry.place(x=129.5, y=270, width=89.5)
 
 # shadow label and entry
 
-shadow_label = ttk.Label(root, text='Shadow:', foreground=text_color, font=('Ariel', 10))
+shadow_label = ttk.Label(root, text='Shadow:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 shadow_label.place(x=239, y=250)
 shadow_label.bind('<Button-1>', lambda e:messages(18))
 shadow_entry = tk.Entry(root, textvariable=Shadow)
@@ -433,7 +433,7 @@ shadow_entry.place(x=239, y=270, width=89.5)
 
 # alignment label and entry
 
-alignment_label = ttk.Label(root, text='Alignment:', foreground=text_color, font=('Ariel', 10))
+alignment_label = ttk.Label(root, text='Alignment:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 alignment_label.place(x=348.5, y=250)
 alignment_label.bind('<Button-1>', lambda e:messages(19))
 alignment_entry = tk.Entry(root, textvariable=Alignment)
@@ -442,7 +442,7 @@ alignment_entry.place(x=348.5, y=270, width=89.5)
 
 # margin left label and entry
 
-marginl_label = ttk.Label(root, text='MarginL:', foreground=text_color, font=('Ariel', 10))
+marginl_label = ttk.Label(root, text='MarginL:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 marginl_label.place(x=20, y=300)
 marginl_label.bind('<Button-1>', lambda e:messages(20))
 marginl_entry = tk.Entry(root, textvariable=MarginL)
@@ -451,7 +451,7 @@ marginl_entry.place(x=20, y=320, width=89.5)
 
 # margin right label and entry
 
-marginr_label = ttk.Label(root, text='MarginR:', foreground=text_color, font=('Ariel', 10))
+marginr_label = ttk.Label(root, text='MarginR:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 marginr_label.place(x=129.5, y=300)
 marginr_label.bind('<Button-1>', lambda e:messages(21))
 marginr_entry = tk.Entry(root, textvariable=MarginR)
@@ -460,7 +460,7 @@ marginr_entry.place(x=129.5, y=320, width=89.5)
 
 # margin vector label and entry
 
-marginv_label = ttk.Label(root, text='MarginV:', foreground=text_color, font=('Ariel', 10))
+marginv_label = ttk.Label(root, text='MarginV:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 marginv_label.place(x=239, y=300)
 marginv_label.bind('<Button-1>', lambda e:messages(22))
 marginv_entry = tk.Entry(root, textvariable=MarginV)
@@ -469,7 +469,7 @@ marginv_entry.place(x=239, y=320, width=89.5)
 
 # Encoding label and entry
 
-encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10))
+encoding_label = ttk.Label(root, text='Encoding:', foreground=text_color, font=('Ariel', 10), cursor='hand2')
 encoding_label.place(x=348, y=300)
 encoding_label.bind('<Button-1>', lambda e:messages(23))
 encoding_entry = tk.Entry(root, textvariable=Encoding)
