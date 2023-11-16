@@ -171,7 +171,7 @@ def messages(msg):
         messagebox.showinfo(title='MarginR', message='This defines the Right Margin in pixels. It is the distance from the right-hand edge of the screen. The three onscreen margins (MarginL, MarginR, MarginV) define areas in which the subtitle text will be displayed.')
     if msg == 22:
         messagebox.showinfo(title='MarginV', message='This defines the vertical Left Margin in pixels. For a subtitle, it is the distance from the bottom of the screen. For a toptitle, it is the distance from the top of the screen. For a midtitle, the value is ignored - the text will be vertically centred')
-    if msg == 13:
+    if msg == 23:
         messagebox.showinfo(title='Encoding', message='This specifies the font character set or encoding and on multi-lingual Windows installations it provides access to characters used in multiple than one languages. It is usually 0 (zero) for English (Western, ANSI) Windows. When the file is Unicode, this field is useful during file format conversions.')
 
 
