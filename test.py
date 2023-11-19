@@ -10,14 +10,26 @@ text_color = 'DodgerBlue4'
 
 
 def choose_files():
-    filetypes = (('.ass files', '*.ass'), ('All files', '*.*'))
-    files = fd.askopenfilenames(parent=root, title='Choose files', filetypes=filetypes)
+    #filetypes = ('All files', '*.*')
+    files = fd.askopenfilenames(parent=root, title='Choose files')#, filetypes=filetypes)
     #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
     file = ''
+    subline = []
+    sublines = []
     for item in files:
         file += item
     with open(file, 'r') as f:
-        print(len(f.readlines()))
+        con = f.readlines()
+    for item in con:
+        if item != '\n':
+            subline.append(item)
+        else:
+            sublines.append(subline)
+            subline = []
+
+    print(sublines)
+    #for ln in con:
+    #    print(ln)
 
 
     #print(lines)
