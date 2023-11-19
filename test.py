@@ -14,6 +14,16 @@ def trimlinenum(line):
     return line
 
 def timeline(line):
+    start = str(line[1:11])
+    start = start.replace(',', '.')
+    end = str(line[18:28])
+    end = end.replace(',', '.')
+    #print(start, end)
+    return start, end
+
+def get_text(line):
+    line = (''.join(line))
+    return line.rstrip()
 
 
 def choose_files():
@@ -36,12 +46,16 @@ def choose_files():
 
     print(sublines[5])
     asssub = ''
-    sub_start = 'Dialogue: 0,'
+    sub_start = 'Dialogue: 0'
     sub_Stime = ''
     sub_Etime = ''
     sub_text = ''
     line = trimlinenum(sublines[5])
     sub_Stime, sub_Etime = timeline(line[0])
+    sub_text = get_text(line[1:len(line)])
+
+    asssub = f'{sub_start},{sub_Stime},{sub_Etime},Default,,0000,0000,0000,,{sub_text}'
+    print(asssub)
 
 
 
