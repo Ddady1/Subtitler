@@ -22,8 +22,10 @@ def timeline(line):
     return start, end
 
 def get_text(line):
+
     line = (''.join(line))
-    return line.rstrip()
+    line = line.rstrip()
+    return line.replace('\n', '\\N')
 
 
 def choose_files():
