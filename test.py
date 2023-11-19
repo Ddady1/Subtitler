@@ -52,7 +52,7 @@ def choose_files():
     sub_Stime = ''
     sub_Etime = ''
     sub_text = ''
-    line = trimlinenum(sublines[5])
+    line = trimlinenum(sublines[31])
     sub_Stime, sub_Etime = timeline(line[0])
     sub_text = get_text(line[1:len(line)])
 
