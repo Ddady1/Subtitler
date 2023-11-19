@@ -37,7 +37,7 @@ def choose_files():
     sublines = []
     for item in files:
         file += item
-    with open(file, 'r') as f:
+    with open(file, 'r', encoding='utf8') as f:
         con = f.readlines()
     for item in con:
         if item != '\n':
@@ -46,17 +46,17 @@ def choose_files():
             sublines.append(subline)
             subline = []
 
-    print(sublines[5])
-    asssub = ''
-    sub_start = 'Dialogue: 0'
-    sub_Stime = ''
-    sub_Etime = ''
-    sub_text = ''
-    line = trimlinenum(sublines[31])
-    sub_Stime, sub_Etime = timeline(line[0])
+    print(sublines[2])
+    #asssub = ''
+    sub_first = 'Dialogue: 0'
+    #sub_Stime = ''
+    #sub_Etime = ''
+    #sub_text = ''
+    line = trimlinenum(sublines[2])
+    sub_start, sub_end = timeline(line[0])
     sub_text = get_text(line[1:len(line)])
 
-    asssub = f'{sub_start},{sub_Stime},{sub_Etime},Default,,0000,0000,0000,,{sub_text}'
+    asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
     print(asssub)
 
 
