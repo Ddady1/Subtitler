@@ -8,6 +8,13 @@ import json
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 
+def trimlinenum(line):
+    line.pop(0)
+    print(line)
+    return line
+
+def timeline(line):
+
 
 def choose_files():
     #filetypes = ('All files', '*.*')
@@ -27,9 +34,15 @@ def choose_files():
             sublines.append(subline)
             subline = []
 
-    print(sublines)
-    #for ln in con:
-    #    print(ln)
+    print(sublines[5])
+    asssub = ''
+    sub_start = 'Dialogue: 0,'
+    sub_Stime = ''
+    sub_Etime = ''
+    sub_text = ''
+    line = trimlinenum(sublines[5])
+    sub_Stime, sub_Etime = timeline(line[0])
+
 
 
     #print(lines)
