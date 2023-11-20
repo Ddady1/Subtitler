@@ -69,13 +69,14 @@ def choose_files():
 
         for line in sublines:
             line = trimlinenum(line)
+            print(line[0])
             sub_start, sub_end = timeline(line[0])
             sub_text = get_text(line[1:len(line)])
             asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
             asssublines.append(asssub)
             asssub = []
     #print(asssub)
-        print(asssublines)
+        #print(asssublines)
 
         with open(new_file, 'w', encoding='utf-8') as f:
             for item in hardcoded:
@@ -84,6 +85,7 @@ def choose_files():
         with open(new_file, 'a', encoding='utf-8') as f:
             for assline in asssublines:
                 f.write('%s\n' % assline)
+
 
     #print(lines)
     #i = 1
