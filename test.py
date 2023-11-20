@@ -80,6 +80,10 @@ def choose_files():
         for item in hardcoded:
             f.write('%s\n' % item)
 
+    with open(new_file, 'a', encoding='utf-8') as f:
+        for assline in asssublines:
+            f.write('%s\n' % assline)
+
     #print(lines)
     #i = 1
     #for line in lines:
