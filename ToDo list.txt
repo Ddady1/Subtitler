@@ -17,3 +17,10 @@ Development:
 * Add the option to convert .srt to .ass
 
 
+
+Important links:
+------------------
+ python to exe-msi  https://cx-freeze.readthedocs.io/en/latest/
+ python to exe   https://pypi.org/project/auto-py-to-exe/
+
+
