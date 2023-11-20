@@ -46,44 +46,43 @@ def choose_files():
     file = ''
     subline = []
     sublines = []
-    sub_first = 'Dialogue: 0'
-    asssublines = []
     for file in files:
         #file += item
         new_file = change_file_name(file)
-        with open(file, 'r', encoding='utf-8') as f:
-            con = f.readlines()
-        for item in con:
-            if item != '\n':
-                subline.append(item)
-            else:
-                sublines.append(subline)
-                subline = []
+    with open(file, 'r', encoding='utf-8') as f:
+        con = f.readlines()
+    for item in con:
+        if item != '\n':
+            subline.append(item)
+        else:
+            sublines.append(subline)
+            subline = []
 
     #print(sublines)
     #asssub = ''
-
+    sub_first = 'Dialogue: 0'
+    asssublines = []
     #sub_Stime = ''
     #sub_Etime = ''
     #sub_text = ''
 
-        for line in sublines:
-            line = trimlinenum(line)
-            sub_start, sub_end = timeline(line[0])
-            sub_text = get_text(line[1:len(line)])
-            asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
-            asssublines.append(asssub)
-            asssub = []
+    for line in sublines:
+        line = trimlinenum(line)
+        sub_start, sub_end = timeline(line[0])
+        sub_text = get_text(line[1:len(line)])
+        asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
+        asssublines.append(asssub)
+        asssub = []
     #print(asssub)
-        print(asssublines)
+    print(asssublines)
 
-        with open(new_file, 'w', encoding='utf-8') as f:
-            for item in hardcoded:
-                f.write('%s\n' % item)
+    with open(new_file, 'w', encoding='utf-8') as f:
+        for item in hardcoded:
+            f.write('%s\n' % item)
 
-        with open(new_file, 'a', encoding='utf-8') as f:
-            for assline in asssublines:
-                f.write('%s\n' % assline)
+    with open(new_file, 'a', encoding='utf-8') as f:
+        for assline in asssublines:
+            f.write('%s\n' % assline)
 
     #print(lines)
     #i = 1
