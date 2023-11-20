@@ -10,7 +10,7 @@ text_color = 'DodgerBlue4'
 
 def trimlinenum(line):
     line.pop(0)
-    print(line)
+    #print(line)
     return line
 
 def timeline(line):
@@ -28,7 +28,18 @@ def get_text(line):
     return line.replace('\n', '\\N')
 
 
+def check_utf():
+    pass
+
+
+def change_file_name(filename):
+    return filename.replace('srt', 'ass')
+
 def choose_files():
+    hardcoded = ['[Script Info]', 'ScriptType: v4.00+', 'Collisions: Normal', 'PlayResX: 384', 'PlayResY: 288',
+                 'Timer: 100.0000', '\n\n', '[V4+ Styles]', 'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
+                 'Style: Default,Tahoma,24,&H00ECEB50,&H00FFFFFF,&H00FFFFFF,&H00C0C0C0,-1,0,0,0,100,100,0,0.00,1,2,3,2,20,20,20,1',
+                 '\n\n', '[Events]', 'Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text']
     #filetypes = ('All files', '*.*')
     files = fd.askopenfilenames(parent=root, title='Choose files')#, filetypes=filetypes)
     #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
@@ -37,7 +48,8 @@ def choose_files():
     sublines = []
     for item in files:
         file += item
-    with open(file, 'r', encoding='utf8') as f:
+        new_file = change_file_name(file)
+    with open(file, 'r', encoding='cp1255', errors='ignore') as f:
         con = f.readlines()
     for item in con:
         if item != '\n':
@@ -46,20 +58,27 @@ def choose_files():
             sublines.append(subline)
             subline = []
 
-    print(sublines[2])
+    #print(sublines)
     #asssub = ''
     sub_first = 'Dialogue: 0'
+    asssublines = []
     #sub_Stime = ''
     #sub_Etime = ''
     #sub_text = ''
-    line = trimlinenum(sublines[2])
-    sub_start, sub_end = timeline(line[0])
-    sub_text = get_text(line[1:len(line)])
 
-    asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
-    print(asssub)
+    for line in sublines:
+        line = trimlinenum(line)
+        sub_start, sub_end = timeline(line[0])
+        sub_text = get_text(line[1:len(line)])
+        asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
+        asssublines.append(asssub)
+        asssub = []
+    #print(asssub)
+    print(asssublines)
 
-
+    with open(new_file, 'w', encoding='utf-8') as f:
+        for item in hardcoded:
+            f.write('%s\n' % item)
 
     #print(lines)
     #i = 1
