@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 import tkinter.filedialog as fd
 from tkinter import messagebox
-from ctypes import windll
 import os
 import json
+#from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 
@@ -35,13 +35,13 @@ def check_utf():
 def change_file_name(filename):
     return filename.replace('srt', 'ass')
 
-def srt_files():
+def srt_files(files):
     hardcoded = ['[Script Info]', 'ScriptType: v4.00+', 'Collisions: Normal', 'PlayResX: 384', 'PlayResY: 288',
                  'Timer: 100.0000', '\n\n', '[V4+ Styles]', 'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
                  'Style: Default,Tahoma,24,&H00ECEB50,&H00FFFFFF,&H00FFFFFF,&H00C0C0C0,-1,0,0,0,100,100,0,0.00,1,2,3,2,20,20,20,1',
                  '\n\n', '[Events]', 'Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text']
     #filetypes = ('All files', '*.*')
-    files = fd.askopenfilenames(parent=root, title='Choose files')#, filetypes=filetypes)
+    #files = fd.askopenfilenames(parent=root, title='Choose files')#, filetypes=filetypes)
     #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
     file = ''
     subline = []
