@@ -5,6 +5,7 @@ from tkinter import messagebox
 from ctypes import windll
 import os
 import json
+from test import srt_files
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 
@@ -90,7 +91,7 @@ def create_json(var_list, entry_list):
 
 
 def open_file(file_path, ass_string):
-    with open(file_path, 'r', encoding='cp1255') as asf:
+    with open(file_path, 'r', encoding='utf-8') as asf:
         content = asf.readlines()
     i = 0
     for con in content:
@@ -114,7 +115,8 @@ def change_files(entry_list):
     ass_format = ass_format + '\n'
     file_num = files_listbox.size()
     for i in range(file_num):
-        open_file(files_listbox.get(i), ass_format)
+        new_file = srt_files(files_listbox.get(i))
+        open_file(new_file, ass_format)
 
     clear_fields(entry_list)
     clear_selected()

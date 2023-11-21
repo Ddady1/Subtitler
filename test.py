@@ -35,7 +35,7 @@ def check_utf():
 def change_file_name(filename):
     return filename.replace('srt', 'ass')
 
-def choose_files():
+def srt_files():
     hardcoded = ['[Script Info]', 'ScriptType: v4.00+', 'Collisions: Normal', 'PlayResX: 384', 'PlayResY: 288',
                  'Timer: 100.0000', '\n\n', '[V4+ Styles]', 'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
                  'Style: Default,Tahoma,24,&H00ECEB50,&H00FFFFFF,&H00FFFFFF,&H00C0C0C0,-1,0,0,0,100,100,0,0.00,1,2,3,2,20,20,20,1',
@@ -92,6 +92,7 @@ def choose_files():
             for assline in asssublines:
                 f.write('%s\n' % assline)
         asssublines = []
+    return new_file
 
 
     #print(lines)
@@ -102,12 +103,12 @@ def choose_files():
 
 
 
-root = tk.Tk()
+'''root = tk.Tk()
 root.title('Set .ass Subtitle')
 root.geometry('458x600+350+150')
 
 choosefiles_button = tk.Button(root, text='Choose Files', foreground=text_color, font=('Ariel', 12, 'bold'),\
-                               command=lambda: choose_files())
+                               command=lambda: srt_files())
 choosefiles_button.place(x=20, y=400, width=120)
 
 exit_btn = tk.Button(root, text='Exit', command=root.quit)
@@ -120,4 +121,4 @@ files_listbox = tk.Listbox(root)
 files_listbox.place(x=150, y=420, width=288, height=170)
 
 
-root.mainloop()
+root.mainloop()'''
