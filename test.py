@@ -53,14 +53,19 @@ def choose_files():
         new_file = change_file_name(file)
         with open(file, 'r', encoding='utf-8') as f:
             con = f.readlines()
+        '''if con[len(con) - 1] == '\n':
+            con = con[:-1]'''
+        while con[len(con) - 1] == '\n':
+            con = con[:-1]
         for item in con:
             if item != '\n':
                 subline.append(item)
             else:
                 sublines.append(subline)
                 subline = []
+        sublines.append(subline)
 
-    #print(sublines)
+        #print(sublines)
     #asssub = ''
 
     #sub_Stime = ''
@@ -68,13 +73,14 @@ def choose_files():
     #sub_text = ''
 
         for line in sublines:
+            #print(line)
             line = trimlinenum(line)
-            print(line[0])
             sub_start, sub_end = timeline(line[0])
             sub_text = get_text(line[1:len(line)])
             asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
             asssublines.append(asssub)
-            asssub = []
+            #asssub = []
+        sublines = []
     #print(asssub)
         #print(asssublines)
 
@@ -85,6 +91,7 @@ def choose_files():
         with open(new_file, 'a', encoding='utf-8') as f:
             for assline in asssublines:
                 f.write('%s\n' % assline)
+        asssublines = []
 
 
     #print(lines)
@@ -102,6 +109,9 @@ root.geometry('458x600+350+150')
 choosefiles_button = tk.Button(root, text='Choose Files', foreground=text_color, font=('Ariel', 12, 'bold'),\
                                command=lambda: choose_files())
 choosefiles_button.place(x=20, y=400, width=120)
+
+exit_btn = tk.Button(root, text='Exit', command=root.quit)
+exit_btn.place(x=20, y=500, width=120)
 
 
 fileslist_label = ttk.Label(root, text='Selected files:', foreground=text_color, font=('Ariel', 11, 'bold'))
