@@ -28,6 +28,7 @@ def clear_fields(entry_list):
     for entry in entry_list:
         entry.delete(0, 'end')
     setdefault_checkbox.deselect()
+    srt2ass_checkbox.deselect()
     name_entry.focus()
 
 
@@ -50,11 +51,17 @@ def check_fields():
 
 
 
-def submit(chk_var):
+def submit(chk_var, convert_box):
     check_fields()
     chk_box_result = checkbox_check(chk_var)
     if chk_box_result:
         create_json(var_list, entry_list)
+    convert_box = checkbox_check(convert_box)
+    if convert_box:
+        srt_list = []
+        for i in range(files_listbox.size()):
+            srt_list.append(files_listbox.get(i))
+    srt_files(srt_list)
     change_files(entry_list)
 
     ## for checking ## print(chk_box_result)
@@ -115,7 +122,6 @@ def change_files(entry_list):
     ass_format = ass_format + '\n'
     file_num = files_listbox.size()
     for i in range(file_num):
-        new_file = srt_files(files_listbox.get(i))
         open_file(new_file, ass_format)
 
     clear_fields(entry_list)
@@ -286,7 +292,7 @@ def srt_files(files):
 # Create the main window
 
 root = tk.Tk()
-root.title('Set .ass Subtitle')
+root.title('Subtitler')
 root.geometry('458x600+350+150')
 #root.iconbitmap('assets/reminder.ico')
 
@@ -317,6 +323,7 @@ MarginR = tk.StringVar()
 MarginV = tk.StringVar()
 Encoding = tk.StringVar()
 setasdefault = tk.IntVar()
+srt2ass = tk.IntVar()
 default_vars = ['Default', 'Tahoma', '24', 'FFFFFF', 'FFFFFF', 'FFFFFF', 'C0C0C0', '-1', '0', '0', '0', '100', '100',
                 '0', '0.00', '1', '2', '3', '2', '20', '20', '20', '1']
 
@@ -576,7 +583,13 @@ entry_list = [name_entry, fontname_entry, fontsize_entry, primarycolor_entry, se
 
 setdefault_checkbox = tk.Checkbutton(root, text='Set setting as Default', fg=text_color, font=('Ariel', 10),
                                      variable=setasdefault)
-setdefault_checkbox.place(x=20, y=350)
+setdefault_checkbox.place(x=20, y=345)
+
+
+# Convert from .srt to .ass checkbox
+
+srt2ass_checkbox = tk.Checkbutton(root, text='Convert .srt file to .ass', fg=text_color, font=('Ariel', 10), variable=srt2ass)
+srt2ass_checkbox.place(x=20, y=370)
 
 
 # clear all fields button
@@ -597,7 +610,7 @@ loaddefaults_btn.place(x=190, y=350)
 # line seperator
 
 seperator = ttk.Separator(root, orient='horizontal')
-seperator.place(x=20, y=390, width=418)
+seperator.place(x=20, y=395, width=418)
 
 
 # text area
@@ -625,7 +638,7 @@ clearfiles_btn.place(x=20, y=450, width=120)
 # submit changes to files button
 
 submit_btn = tk.Button(root, text='Submit', foreground=text_color, font=('Ariel', 12, 'bold'),
-                       command=lambda: submit(setasdefault))
+                       command=lambda: submit(setasdefault, srt2ass))
 submit_btn.place(x=20, y=500, width=120)
 
 # line seperator
