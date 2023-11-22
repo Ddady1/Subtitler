@@ -61,11 +61,18 @@ def submit(chk_var, convert_box):
         srt_list = []
         for i in range(files_listbox.size()):
             srt_list.append(files_listbox.get(i))
-    srt_files(srt_list)
+        new_files_name = srt_files(srt_list)
+        listbox_new_files(new_files_name)
     change_files(entry_list)
 
     ## for checking ## print(chk_box_result)
 
+
+def listbox_new_files(new_files_name):
+    i = 0
+    for new_file in new_files_name:
+        files_listbox.insert(i, new_file)
+        i += 1
 
 def check_json():
     json_path = 'defaults.json'
@@ -122,7 +129,7 @@ def change_files(entry_list):
     ass_format = ass_format + '\n'
     file_num = files_listbox.size()
     for i in range(file_num):
-        open_file(new_file, ass_format)
+        open_file(files_listbox.get(i), ass_format)
 
     clear_fields(entry_list)
     clear_selected()
@@ -239,9 +246,11 @@ def srt_files(files):
     sublines = []
     sub_first = 'Dialogue: 0'
     asssublines = []
+    new_file_list = []
     for file in files:
         #file += item
         new_file = change_file_name(file)
+        new_file_list.append(new_file)
         with open(file, 'r', encoding='utf-8') as f:
             con = f.readlines()
         '''if con[len(con) - 1] == '\n':
@@ -283,7 +292,7 @@ def srt_files(files):
             for assline in asssublines:
                 f.write('%s\n' % assline)
         asssublines = []
-    return new_file
+    return new_file_list
 
 
 
