@@ -242,12 +242,13 @@ def srt_files(files):
     #files = fd.askopenfilenames(parent=root, title='Choose files')#, filetypes=filetypes)
     #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
     file = ''
-    subline = []
-    sublines = []
+
     sub_first = 'Dialogue: 0'
     asssublines = []
     new_file_list = []
     for file in files:
+        subline = []
+        sublines = []
         #file += item
         new_file = change_file_name(file)
         new_file_list.append(new_file)
@@ -274,13 +275,14 @@ def srt_files(files):
 
         for line in sublines:
             #print(line)
+            asssub = ''
             line = trimlinenum(line)
             sub_start, sub_end = timeline(line[0])
             sub_text = get_text(line[1:len(line)])
             asssub = f'{sub_first},{sub_start},{sub_end},Default,,0000,0000,0000,,{sub_text}'
             asssublines.append(asssub)
-            #asssub = []
-        sublines = []
+
+        #sublines = []
     #print(asssub)
         #print(asssublines)
 
