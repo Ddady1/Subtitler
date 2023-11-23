@@ -5,6 +5,7 @@ from tkinter import messagebox
 from ctypes import windll
 import os
 import json
+import chardet
 
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
@@ -104,8 +105,15 @@ def create_json(var_list, entry_list):
             return
 
 
+def check_encoding(file):
+    with open(file, 'rb') as f:
+        result = chardet.detect(f.read())
+        return result['encoding']
+
+
 def open_file(file_path, ass_string):
-    with open(file_path, 'r', encoding='utf-8') as asf:
+    file_encoding = check_encoding(file_path)
+    with open(file_path, 'r', encoding=str(file_encoding)) as asf:
         content = asf.readlines()
     i = 0
     for con in content:
