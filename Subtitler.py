@@ -42,18 +42,25 @@ def checkbox_check(chk_var):
         return True
     return False
 
-def check_fields():
+def check_fields(var_list, default_vars):
     i = 0
     for entry in entry_list:
         if len(entry.get()) == 0:
-            entry.configure(bg='red')
+            x = len(entry.get())
+            entry.insert(0, default_vars[i])
+            y = entry.get()
         i += 1
 
-
+'''i = 0
+    for entry in entry_list:
+        con = config.get(var_list[i])
+        con = con.lstrip('&H')
+        entry.insert(0, con)
+        i += 1'''
 
 
 def submit(chk_var, convert_box):
-    check_fields()
+    check_fields(var_list, default_vars)
     chk_box_result = checkbox_check(chk_var)
     if chk_box_result:
         create_json(var_list, entry_list)
