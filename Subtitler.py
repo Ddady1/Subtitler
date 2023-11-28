@@ -22,7 +22,7 @@ def choose_files():
 
 
 def menu_about():
-    messagebox.showinfo(title='ABout', message='Replace .ass ver. 1.0.0\nBy David Hay Racha')
+    messagebox.showinfo(title='About', message='Replace .ass ver. 1.1.0\nBy David Hay Racha')
 
 
 def clear_fields(entry_list):
@@ -679,6 +679,6 @@ seperator.place(x=20, y=540, width=120)
 exit_btn = tk.Button(root, text='Exit', foreground=text_color, font=('Ariel', 12, 'bold'), command=root.quit)
 exit_btn.place(x=20, y=550, width=120)
 
-4
+
 root.mainloop()
 
