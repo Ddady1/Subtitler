@@ -22,5 +22,8 @@ Important links:
 ------------------
  python to exe-msi  https://cx-freeze.readthedocs.io/en/latest/
  python to exe   https://pypi.org/project/auto-py-to-exe/
+ https://vegibit.com/how-to-hide-password-in-python/
+ https://betterprogramming.pub/hiding-passwords-secrets-in-python-397ecd929050
+ https://pythonhow.com/how/store-python-passwords-securely-on-windows-mac-and-linux/
 
 
