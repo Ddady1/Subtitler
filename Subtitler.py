@@ -267,7 +267,8 @@ def srt_files(files):
         #file += item
         new_file = change_file_name(file)
         new_file_list.append(new_file)
-        with open(file, 'r', encoding='utf-8') as f:
+        file_encoding = check_encoding(file)
+        with open(file, 'r', encoding=file_encoding) as f:
             con = f.readlines()
         '''if con[len(con) - 1] == '\n':
             con = con[:-1]'''
