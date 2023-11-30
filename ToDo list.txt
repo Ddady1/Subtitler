@@ -1,7 +1,7 @@
 Minor issues:
 ----------------
 
-* When uploading the default settings it takes the '&H' in the color fields and then adds it again. Needs to trim it.
+* When uploading the default settings it takes the '&H' in the color fields and then adds it again. Needs to trim it. - Done!
 * Needs to do validation on the fields.
 * Needs to fix that when user type only some fields the rest will come from defaults.json file if exists or the original default.
 * Needs to finish the linked labels for information per field. - Done 16/11/23
