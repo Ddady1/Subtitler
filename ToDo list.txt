@@ -46,5 +46,10 @@ Submit - btn
 Cancel - btn
 Clear fields - btn
 
+Functionality:
+
+Subscription length - from dates
+Subscription time left - from dates
+
 
 
