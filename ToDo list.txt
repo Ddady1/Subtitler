@@ -27,3 +27,24 @@ Important links:
  https://pythonhow.com/how/store-python-passwords-securely-on-windows-mac-and-linux/
 
 
+Form design:
+______________
+
+Product Name - str - text line
+Manufacturer - str - text line
+Quantity - int - text line
+Start Date - date - widget
+Expiration - date - widget
+Invoice No. - str - text line
+Invoice Date - date -widget
+Partner\Reseller - str - text line
+Authorization No. - str - text line
+Remarks\Other - str - multi text line
+License No. - str - text line
+
+Submit - btn
+Cancel - btn
+Clear fields - btn
+
+
+
