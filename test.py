@@ -4,7 +4,7 @@ import tkinter.filedialog as fd
 from tkinter import messagebox
 import os
 import json
-#from ctypes import windll
+from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 text_color = 'DodgerBlue4'
 

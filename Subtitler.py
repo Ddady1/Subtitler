@@ -12,7 +12,7 @@ text_color = 'DodgerBlue4'
 
 
 def choose_files():
-    filetypes = (('.ass files', '*.ass'), ('All files', '*.*'))
+    filetypes = (('.ass files', '*.ass'), ('.srt files', '*.srt'), ('All files', '*.*'))
     files = fd.askopenfilenames(parent=root, title='Choose files', filetypes=filetypes)
     #messagebox.askquestion(title='Selected files', message='Do you wish to continue?')
     i = 1
